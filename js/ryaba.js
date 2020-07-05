@@ -39,8 +39,10 @@ else {
 }
 
 function PrintSkazka(str_skazka){
-  skazka = JSON.parse(skazka);
-  resultText.html(skazka.text);
+	if (typeof str_skazka == 'object')
+		{skazka = JSON.parse(str_skazka);}
+	else {skazka = str_skazka}
+    resultText.html(skazka.text);
 }
 
 function PrintNewSkazka(str_new_skazka){
