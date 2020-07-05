@@ -39,10 +39,11 @@ else {
 }
 
 function PrintSkazka(str_skazka){
-  if (typeof str_skazka == 'object')
-    {skazka = JSON.stringify(str_skazka);}
-  else {skazka = JSON.parse(str_skazka);}
-    resultText.html(skazka.text);
+  if (typeof str_skazka != 'object')
+    {
+      skazka = JSON.parse(str_skazka);
+    }
+  resultText.html(skazka.text);
 }
 
 function PrintNewSkazka(str_new_skazka){
@@ -66,13 +67,13 @@ function PrintNewSkazka(str_new_skazka){
 
 
 btnCreate.click(function(){
-  console.log(skazka);
+  console.log('old skazka:', skazka);
   PrintSkazka(skazka);
-  console.log('skazka', skazka);
 }
 );
 
 btnReplace.click(function () {
+    console.log('new skazka:', skazka)
     PrintNewSkazka(skazka)    
    }
 );
